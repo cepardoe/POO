@@ -11,8 +11,26 @@ ArrayList<Integer> digits(int i) {
     return digits;
 }
 
+//esta funcion permite realizar la sumatoria de los cuadrados de los digitos del numero
+int squaredigitsum(int n) 
+{
+ArrayList<Integer> digitos = new ArrayList<Integer>();
+digitos=digits(n);
+int[] arreglo=new int[digitos.size()];
+for (int i=0;i<digitos.size();i++)
+{
+  arreglo[i] =digitos.get(i);
+}
+int suma = 0;
+for (int i=0;i<digitos.size();i++)
+{
+suma =suma+((arreglo[i])*(arreglo[i]));
+}
+return suma;
+}
+
 void setup(){
 int x=13;
-println(digits(x));
+println(squaredigitsum(x));
   
 }
