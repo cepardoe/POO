@@ -63,6 +63,14 @@ void draw(){
 int suma = squaredigitsum(squaredigitsum(squaredigitsum(squaredigitsum(n))));
 if (squaredigitsum(suma)==1) {
   text("Es feliz", 360,130);
+  fill(255,255,0);
+  ellipse(500,250, 200, 200);
+  fill(255);
+  ellipse(520,220, 20, 20);
+  ellipse(480,220, 20, 20);
+  fill(0);
+  ellipse(500,300, 100, 20);
+  
 }
 else{text("No es feliz", 360,130);}
 }
