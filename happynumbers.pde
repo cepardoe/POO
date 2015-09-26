@@ -36,12 +36,47 @@ if(suma == 1) println("true");
 else happynum(suma);
 }
 
+import controlP5.*;
+ControlP5 cp5;
+String textValue = "";
+
+public void clear() {
+  cp5.get(Textfield.class,"textValue").clear();
+}
 
 void setup(){
-int x=24;
-happynum(x);
+  size(700,400);
+  
+  PFont font = createFont("arial",20);
+  
+  cp5 = new ControlP5(this);
+  
+  cp5.addTextfield("NUMERO")
+     .setPosition(20,100)
+     .setSize(200,40)
+     .setFont(font)
+     .setFocus(true)
+     .setColor(color(255,0,0));
+     
+   cp5.addBang("clear")
+     .setPosition(240,170)
+     .setSize(80,40)
+     .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)  ; 
+  textFont(font);
 }
 
 void draw(){
+  int n=int(cp5.get(Textfield.class,"NUMERO").getText());
+  background(n);
+  fill(255);
+  text(cp5.get(Textfield.class,"NUMERO").getText(), 360,130);
+  text(textValue, 360,180);
+  println(n);
+  
+  
+}
 
+public void input(String theText) {
+  // automatically receives results from controller input
+  println("a textfield event for controller 'NUMERO' : "+theText);
 }
