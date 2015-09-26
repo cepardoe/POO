@@ -29,8 +29,19 @@ suma =suma+((arreglo[i])*(arreglo[i]));
 return suma;
 }
 
+//esta funcion permite verificar si el numero es o no feliz
+void happynum(int n){
+int suma = squaredigitsum(n);
+if(suma == 1) println("true");
+else happynum(suma);
+}
+
+
 void setup(){
-int x=13;
-println(squaredigitsum(x));
-  
+int x=24;
+happynum(x);
+}
+
+void draw(){
+
 }
