@@ -30,20 +30,14 @@ return suma;
 }
 
 //esta funcion permite verificar si el numero es o no feliz
-void happynum(int n){
-int suma = squaredigitsum(n);
-if(suma == 1) println("true");
-else happynum(suma);
-}
 
+//empieza a realizarse la GUI para obtener el dato
 import controlP5.*;
 ControlP5 cp5;
 String textValue = "";
 
-public void clear() {
-  cp5.get(Textfield.class,"textValue").clear();
-}
-
+//se utiliza el tutorial y los ejemplos de la libreria para invocar los 
+//campos necesarios.
 void setup(){
   size(700,400);
   
@@ -57,11 +51,7 @@ void setup(){
      .setFont(font)
      .setFocus(true)
      .setColor(color(255,0,0));
-     
-   cp5.addBang("clear")
-     .setPosition(240,170)
-     .setSize(80,40)
-     .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)  ; 
+
   textFont(font);
 }
 
@@ -69,11 +59,12 @@ void draw(){
   int n=int(cp5.get(Textfield.class,"NUMERO").getText());
   background(n);
   fill(255);
-  text(cp5.get(Textfield.class,"NUMERO").getText(), 360,130);
-  text(textValue, 360,180);
-  println(n);
-  
-  
+
+int suma = squaredigitsum(squaredigitsum(squaredigitsum(squaredigitsum(n))));
+if (squaredigitsum(suma)==1) {
+  text("Es feliz", 360,130);
+}
+else{text("No es feliz", 360,130);}
 }
 
 public void input(String theText) {
